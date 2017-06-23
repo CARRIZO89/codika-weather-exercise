@@ -1,5 +1,4 @@
 Codika Weather API 
-Gabriel Alejandro Lopez, alelopez.utnfrt@gmail.com
 ==============================================
 
 Test API to check weather status in cities
@@ -55,3 +54,4 @@ curl -X GET \
   -H 'client: <client>' \
   -H 'uid: <uid>'
 ```
+Gabriel Alejandro Lopez, alelopez.utnfrt@gmail.com
