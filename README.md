@@ -1,24 +1,57 @@
-# README
+Codika Weather API 
+Gabriel Alejandro Lopez, alelopez.utnfrt@gmail.com
+==============================================
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Test API to check weather status in cities
 
-Things you may want to cover:
+Environment
+----------------------------------------------
 
-* Ruby version
+- Ruby version: `2.4.0`
+- Rails version: `5.1.1`
+- Ruby version manager: `rvm`
 
-* System dependencies
+Configuration
+----------------------------------------------
 
-* Configuration
+- `bundle install`
+- `rails db:setup`
 
-* Database creation
+Usage
+----------------------------------------------
 
-* Database initialization
+Example with cURL:
 
-* How to run the test suite
+1. `bundle exec rails server`
 
-* Services (job queues, cache servers, search engines, etc.)
+2. Register a user
+```
+curl -X POST \
+  http://localhost:3000/api/v1/auth \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
+  -F email=<email> \
+  -F password=<password> \
+  -F password_confirmation=<password_confirmation>
+```
 
-* Deployment instructions
+3. Get session tokens
+```
+curl -X POST \
+  http://localhost:3000/api/v1/auth/sign_in \
+  -H 'cache-control: no-cache' \
+  -H 'email: <email>' \
+  -H 'password: <password>' \
+```
 
-* ...
+4. Copy Access-Token, Client and Uid
+
+5. Get posts with tokens
+```
+curl -X GET \
+  'http://localhost:3000/api/v1/weathers?name=<name>' \
+  -H 'access_token: <access_token>' \
+  -H 'cache-control: no-cache' \
+  -H 'client: <client>' \
+  -H 'uid: <uid>'
+```
